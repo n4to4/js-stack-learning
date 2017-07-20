@@ -24,7 +24,9 @@
     "express": "^4.15.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-hot-loader": "next"
+    "react-hot-loader": "next",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
