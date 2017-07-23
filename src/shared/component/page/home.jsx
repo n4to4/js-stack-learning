@@ -2,12 +2,30 @@
 
 import React from 'react'
 import Helmet from 'react-helmet'
+import injectSheet from 'react-jss'
 
 import ModalExample from '../modal-example'
 import { APP_NAME } from '../../config'
 
+const styles = {
+  hoverMe: {
+    '&:hover': {
+      color: 'red',
+    },
+  },
+  '@media (max-width: 800px)': {
+    resizeMe: {
+      color: 'red',
+    },
+  },
+  specialButton: {
+    composes: ['btn', 'btn-primary'],
+    backgroundColor: 'limegreen',
+  },
+}
+
 /* eslint-disable jsx-a11y/no-redundant-roles */
-const HomePage = () => (
+const HomePage = ({ classes }: { classes: Object }) => (
   <div>
     <Helmet
       meta={[
@@ -29,7 +47,10 @@ const HomePage = () => (
           </p>
         </div>
         <div className="col-md-4 mb-4">
-          <h3 className="mb-3">JSS (soon)</h3>
+          <h3 className="mb-3">JSS</h3>
+          <p className={classes.hoverMe}>Hover me.</p>
+          <p className={classes.resizeMe}>Resize the window.</p>
+          <button className={classes.specialButton}>Composition</button>
         </div>
         <div className="col-md-4 mb-4">
           <h3 className="mb-3">Websockets</h3>
@@ -42,4 +63,4 @@ const HomePage = () => (
 )
 /* eslint-enable jsx-a11y/no-redundant-roles */
 
-export default HomePage
+export default injectSheet(styles)(HomePage)
